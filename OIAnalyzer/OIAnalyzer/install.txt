@@ -1,0 +1,9 @@
+pip3 install -r requirements.txt
+
+
+
+
+Read.md
+
+Create database and table
+update the details of postgresdb in postgres_conf.py

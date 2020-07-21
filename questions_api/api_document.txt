@@ -1,0 +1,16 @@
+
+
+Routers : 
+
+    subjects model: application/json format
+    FIELDS : 
+        name        -> {type : String ,required}
+        level        -> {type : String ,required}
+        domain        -> {type : String ,required}
+    @GET        /api/subjects/all       -> To fetch all documents
+    @POST       /api/subjects/create    -> To create a document
+    @DELETE     /api/subjects/delete-subject    -> To delete a subject based on (name, domain)
+    @DELETE     /api/subjects/delete-level    -> To delete a level of subject based on (name,level,domain)
+
+
+    https://vegibit.com/mongoose-relationships-tutorial/
