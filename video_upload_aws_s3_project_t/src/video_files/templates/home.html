@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>S3 Example Static Only</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+</head>
+<body>
+  <header>
+    <h1>S3 Example Static Only</h1>
+  </header>
+  <main>
+    <img src="{% static 'img/post2.png' %}">
+    <h2>It's working!</h2>
+
+    <div class="container">
+      <div class="section">
+        <h1 class="is-size-1">Upload Image</h1>
+        <hr><br>
+        <form action="{% url "upload" %}" method="post" enctype="multipart/form-data" class="form">
+          {% csrf_token %}
+          <div class="field">
+            <div class="control">
+              <div class="file">
+                <label class="file-label">
+                  <input class="file-input" type="file" name="image_file">
+                  <span class="file-cta">
+                    <span class="file-label">Choose a file...</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <label class="radio">
+                <input type="radio" name="image_type" value='public' checked>
+                Public
+              </label>
+              <label class="radio">
+                <input type="radio" name="image_type" value='private'>
+                Private
+              </label>
+            </div>
+          </div>
+          <br>
+          <div class="field">
+            <div class="control">
+              <input type="submit" value="Submit" class="button is-primary" />
+            </div>
+          </div>
+        </form>
+        <br><br>
+        {% if image_url %}
+          <p>File uploaded at: <a href="{{ image_url }}">{{ image_url }}</a></p>
+          <p>File Type <a href="#">{{ media_type }}</a></p>
+
+        {% endif %}
+      </div>
+    </div>
+
+
+
+  </main>
+
+  <!-- <video width="720" height="480" controls>
+    <source src="#" type="video/mp4">
+    <source src="movie.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+  </video> -->
+
+
+
+
+  <footer>
+    <a href="https://googlespot.org">www.Demo.com</a>
+  </footer>
+</body>
+</html>
